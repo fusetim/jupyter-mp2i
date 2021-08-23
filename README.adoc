@@ -1,0 +1,42 @@
+= Jupyter-MP2I
+
+[abstract]
+A simple jupyter environment for MP2I for Nix and Docker.
+
+=== Include
+
+* [x] OCaml kernel
+* - ocaml-jupyter
+* - ocaml-jupyter-kernel
+* - ❌ archimedes
+* [x] Python kernel
+* - iPython kernel
+* - numpy
+* - matplotlib
+* [x] C Kernel
+* - libcue
+* [ ] Bash kernel (working on it)
+* Other helpers
+* - pandoc
+
+=== Usage
+
+==== with Docker
+
+* Use a prebuilt docker image: 
+```shell
+$ docker run -p 8888:8888 -it ghcr.io/fusetim/jupyter-mp2i:latest
+```
+
+* Build your own docker image: 
+```shell
+$ git clone https://github.com/fusetim/jupyter-mp2i
+$ cd jupyter-mp2i
+$ nix-build docker.nix
+$ docker load < result
+$ docker run -p 8888:8888 -it  jupyter-mp2i:<nix-hash>
+```
+
+== Licenses
+
+Licensed under both the MIT license and the Apache License, Version 2.0. 
