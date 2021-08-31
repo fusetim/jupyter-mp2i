@@ -10,12 +10,10 @@ let
       name = "c";
       packages = pkgs: with pkgs; [libcue];
   };
-  ocamlKernel = (import (builtins.fetchurl {
-      url = https://gist.githubusercontent.com/fusetim/e59b17fc9bac31f2e43174fccd14d7e9/raw/278c713c0faedba35f7d120b87ffb41cca707eaa/default.nix;
-  }) {
+  ocamlKernel = jupyter.kernels.ocamlWith {
       name = "ocaml";
       packages = p: with p; [];
-  });
+  };
 
 
   jupyterEnvironment = 
